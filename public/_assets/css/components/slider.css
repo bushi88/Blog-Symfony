@@ -1,0 +1,21 @@
+.slider{
+    height: 600px;
+    background-image: url("/_assets/images/slider-2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-shadow: 2px 2px 13px rgb(26, 26, 26);
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+}
+.slider-content{
+    background-color: rgb(0 0 0 /60%);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 13px rgb(26, 26, 26);
+    text-align: center;
+    margin-top: 5%;
+}

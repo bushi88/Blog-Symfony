@@ -1,0 +1,7 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+# index:
+#     path: /blog
+#     controller: App\Controller\BlogController::index

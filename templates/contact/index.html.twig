@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+
+<h2 class="title">Contactez-nous</h2>
+
+{{ form_start(contact) }}
+    {% for message in app.session.flashBag.get("message") %}
+        <div class="alert {{ app.session.get("status") }}">{{ message }}</div>
+    {% endfor %}
+{{ form_end(contact) }}
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ article.title }} {% endblock %}
+
+{% block body %}
+
+    <div class="single-article">
+        <div class="article-image" style="background-image: url({{ article.imageUrl }})"></div>
+        <div class="article-details flex">
+            <div class="article-author-details">
+                <div class="article-author-picture">
+                    {% if article.author.profile.picture is defined %}
+                        <img src="{{ article.author.profile.picture }}" alt="Image de profil de {{ article.author.fullname }}">
+                    {% else %}
+                        <img src="/_assets/images/avatar.webp" alt="Image de profil de {{ article.author.fullname }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="article-content-details">
+                <h2 class="article-title"> {{ article.title }} </h2>
+                <div class="article-createdAt"> {{ article.fromNow }} </div>
+                <div class="article-categories flex wrap">
+                    {% for category in article.categories %}
+                        <a href="/category/{{category.slug}}">
+                            <div class="article-category-item badge"> {{ category.name }} ({{category.articles | length}} article(s) publié(s)) </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            {{ article.content | raw }} {# ajout filtre raw pour lire le contenu sans les balises html #}
+        </div>       
+    </div>
+
+{% endblock %}
