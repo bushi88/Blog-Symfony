@@ -1,17 +1,19 @@
-
-.UserDashboard-container{
-    flex:1;
+.UserDashboard-container {
+    flex: 1;
     overflow-x: scroll;
     min-height: 60vh;
 }
-.UserDashboard aside{
+
+.UserDashboard aside {
     width: 295px;
 }
-@media screen and (max-width: 900px){
-    .UserDashboard{
+
+@media screen and (max-width: 900px) {
+    .UserDashboard {
         flex-direction: column;
     }
-    .UserDashboard aside{
+
+    .UserDashboard aside {
         width: 100%;
     }
 }

@@ -1,28 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Article{% endblock %}
+{% block title %}Nouvel Article
+{% endblock %}
+
+{% set aside = "not" %}
 
 {% block body %}
+	<div class="UserDashboard flex gap-20">
+		{{ include('account_dashboard/index.html.twig', {page: "articles"}) }}
+		<div class="UserDashboard-container">
+		    {{ include('article/_form.html.twig', {title: "créer un nouvel Article"}) }}
+		</div>
+	</div>
+{% endblock %}
 
-    {{ include('article/_form.html.twig', {title: "Create new Article"}) }}
-
-    <a href="{{ path('app_article_index') }}">back to list</a>
-
-    {% endblock %}
-    
 {% block javascripts %}
-
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () { // selection champ catégorie
             $('.choices_categories').select2();
+            // remplacement fichier image dans le formulaire CRUD
+            $("input[type='file']").change(function () {
+                var file = $(this).get(0).files[0]
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function () {
+                        console.log(file);
+                        var img = `<img src='${reader.result
+                            }' alt="Preview Image" />`;
+                        $(".image-preview").html(img)
+                        console.log(img);
+                        console.log('salut');
+                    }
+                    reader.readAsDataURL(file)
+                }
+            })
         });
-        ClassicEditor
-                                .create( document.querySelector( '#article_content' ) )
-                                .then( editor => {
-                                        console.log( editor );
-                                } )
-                                .catch( error => {
-                                        console.error( error );
-                                } );
+        ClassicEditor.create(document.querySelector('#article_content')).then(editor => {
+            console.log(editor);
+        }).catch(error => {
+            console.error(error);
+        });
     </script>
 {% endblock %}

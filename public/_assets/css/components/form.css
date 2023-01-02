@@ -1,34 +1,37 @@
-.form-group{
+.form-group {
     margin: 15px 0;
     flex-direction: column;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-form textarea{
+form textarea {
     border: 1px solid #ccc;
     resize: none;
     outline: none;
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif
-
 }
-form[name="article"]{
+
+form[name="article"] {
     max-width: 100%;
     margin: auto;
 }
-form .select2-selection{
+
+form .select2-selection {
     border: 1px solid #ccc !important;
     border-radius: 0 !important;
 
 }
+
 form .select2-selection,
-form select{
+form select {
     border: 1px solid #ccc;
     border-radius: 0 !important;
     outline: none;
     min-height: 40px;
 
 }
+
 form input[type="file"] {
     overflow: hidden;
     align-items: baseline;
@@ -37,7 +40,8 @@ form input[type="file"] {
     white-space: pre;
     text-align: start !important;
 }
-form input{
+
+form input {
     min-height: 40px;
     border: 1px solid #ccc;
     outline: none;
@@ -46,23 +50,27 @@ form input{
     font-size: 1.3rem;
 }
 
-form{
+form {
     max-width: 600px;
     width: 90%;
     margin: 50px auto;
     height: 100%;
 }
-form p{
-    text-align: center;
+
+form p {
+    text-align: start;
 }
-form p a{
+
+form p a {
     color: var(--main-color);
 }
-form .label-container{
+
+form .label-container {
     /* display: none; */
     width: 150px;
     overflow: hidden;
 }
+
 form ul {
     margin: 2px 0;
     padding: 0;
@@ -70,10 +78,12 @@ form ul {
     font-size: 0.8rem;
     order: 2;
 }
-form .form-group> ul li{
+
+form .form-group>ul li {
     color: var(--main-danger) !important;
 }
-form .image-preview img{
-    width: 100px;
-    height: 100px;
+
+form .image-preview img {
+    width: 120px;
+    height: 120px;
 }

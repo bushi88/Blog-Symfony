@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article index
+{% endblock %}
+
+{% set aside = "not" %}
+
+{% block body %}
+
+	<div class="UserDashboard flex gap-20">
+		{{ include('account_dashboard/index.html.twig', {page: "articles"}) }}
+		<div class="UserDashboard-container">
+
+			<h2 class="title">Mes Articles</h2>
+
+			<div class="flex mb-10">
+				<a class="btn" href="{{ path('app_article_new') }}">nouveau</a>
+			</div>
+
+			<div class="table-container">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Titre</th>
+							{# <th>Slug</th> #}
+							<th>Contenu</th>
+							<th>Image</th>
+							{# <th>CreatedAt</th>
+							<th>UpdatedAt</th> #}
+							<th>actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for article in articles %}
+							<tr>
+								<td>{{ article.id }}</td>
+								<td>{{ article.title }}</td>
+								{# <td>{{ article.slug }}</td> #}
+								<td class="td-content">
+									<div class="article-content">
+										{{ article.content | raw}}
+									</div>
+								</td>
+								<td>
+									<img src="{{ article.imageUrl }}" alt="Image de {{article.title}}">
+								</td>
+								{# <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td> #}
+								{# <td>{{ article.createdAt ? article.fromNow : '' }}</td> #}
+								{# <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td> #}
+								{# <td>{{ article.updatedAt ? article.fromNow : '' }}</td> #}
+								<td>
+									<div class="flex">
+										<a class="btn" href="{{ path('app_article_show', {'id': article.id}) }}">montrer</a>
+										<a class="btn" href="{{ path('app_article_edit', {'id': article.id}) }}">éditer</a>
+										{{ include('article/_delete_form.html.twig') }}
+									</div>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="8">aucun enregistrement trouvé</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+	<script>
+		$('.article-content').readmore({speed: 75, moreLink: '<a href="#" class="btn btn-read">voir plus</a>', lessLink: '<a href="#" class="btn btn-read">voir moins</a>'});
+	</script>
+{% endblock %}

@@ -17,7 +17,7 @@ class BlogController extends AbstractController
         $categoriesServices->updateSession();
     }
 
-    #[Route('/', name: 'app_hello')]
+    #[Route('/', name: 'app_index')]
     // modification de la ligne ci-dessous suite création $session section 11 cours 3
     // public function hello(Request $request ,ArticleRepository $repoArticle, CategoryRepository $repoCat): Response
     public function hello(Request $request, ArticleRepository $repoArticle): Response

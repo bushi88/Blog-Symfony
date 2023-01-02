@@ -26,8 +26,16 @@ class ArticleController extends AbstractController
         $this->em = $em;
     }
 
-    #[Route('/', name: 'app_article_index', methods: ['GET'])]
-    public function index(ArticleRepository $articleRepository): Response
+    #[Route('/', name: 'app_dashboard', methods: ['GET'])]
+    public function index(): Response
+    {
+        return $this->render('article/index.html.twig', [
+            // 'articles' => $articles,
+        ]);
+    }
+
+    #[Route('/articles', name: 'app_article_index', methods: ['GET'])]
+    public function articles(ArticleRepository $articleRepository): Response
     {
         $user = $this->getUser();
 
@@ -36,7 +44,7 @@ class ArticleController extends AbstractController
         }
         $articles = $articleRepository->findByAuthor($user);
 
-        return $this->render('article/index.html.twig', [
+        return $this->render('article/articles.html.twig', [
             'articles' => $articles,
         ]);
     }
@@ -80,12 +88,12 @@ class ArticleController extends AbstractController
     #[Route('/{id}', name: 'app_article_show', methods: ['GET'])]
     public function show(Article $article): Response
     {
-        return $this->render('article/show.html.twig', [
+        return $this->render('blog/single.html.twig', [
             'article' => $article,
         ]);
     }
 
-    // UPDATE ARTICLE
+    // UPDATE / EDIT ARTICLE
     #[Route('/{id}/edit', name: 'app_article_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Article $article, ArticleRepository $articleRepository): Response
     {
@@ -107,7 +115,7 @@ class ArticleController extends AbstractController
 
             // $articleRepository->save($article, true);
 
-            return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_single_article', ["slug" => $article->getSlug()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('article/edit.html.twig', [

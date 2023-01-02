@@ -1,4 +1,4 @@
-.alert{
+.alert {
     color: white;
     position: relative;
     padding: 5px 90px;
@@ -6,9 +6,11 @@
     text-align: center;
     margin: 5px 0;
 }
-.alert.success{
+
+.alert.success {
     background-color: var(--main-success);
 }
-.alert.danger{
+
+.alert.danger {
     background-color: var(--main-danger);
 }

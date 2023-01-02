@@ -1,0 +1,10 @@
+<aside class="categories">
+	<h2>Categories</h2>
+	<ul>
+		{% for category in app.session.get("categories") %}
+			<li class="">
+				<a href="/category/{{category.slug}}">{{ category.name}} ( {{category.articles| length}} articles )</a>
+			</li>
+		{% endfor %}
+	</ul>
+</aside>

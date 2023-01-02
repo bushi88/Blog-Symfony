@@ -1,41 +1,50 @@
-table{
+table {
     border-collapse: collapse;
-    width:100%;
+    width: 100%;
 }
-.table-container{
+
+.table-container {
     overflow-x: auto;
 }
-table td, table th{
+
+table td,
+table th {
     border: 1px solid #ccc;
-    padding: 5px;
+    padding: 15px;
 }
-table td.image{
+
+table td.image {
     min-width: 150px;
 }
-table td{
-    /* min-width: 150px; */
-    height: 250px;
+
+table td {
+    min-width: 50px;
+    min-height: 100px;
     overflow: hidden;
 }
 
-table td img{
+table td img {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 }
-table td .article-content{
+
+table td .article-content {
     /* height: 180px; */
     overflow: hidden;
     line-height: 1.5;
     text-align: justify;
 }
-table td.td-content{
-    padding-bottom: 20px;
+
+table td.td-content {
+    padding-bottom: 10px;
 }
-table td a.btn-read{
+
+table td a.btn-read {
     display: inline-block;
     float: right;
-    margin: 10px 0;
+    margin: 10px 5px;
 }
-table td form{
+
+table td form {
     margin: 0 !important;
 }

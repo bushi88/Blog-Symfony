@@ -1,4 +1,4 @@
-header{
+header {
     background: white;
     color: var(--main-color);
     height: 80px;
@@ -11,39 +11,46 @@ header{
     padding: 0 30px;
     cursor: pointer;
 }
-header h2{
+
+header h2 {
     text-shadow: 1px 1px 25px #1d1d1d;
     text-transform: uppercase;
 }
-header nav{
+
+header nav {
     flex: 1;
 }
-header nav ul{
+
+header nav ul {
     list-style-type: none;
     gap: 20px;
     text-transform: uppercase;
     flex-wrap: wrap;
     justify-content: center;
 }
-header nav ul li{
+
+header nav ul li {
     position: relative;
     height: 80px;
     display: flex;
     align-items: center;
 }
-header nav > ul >li >a{
+
+header nav>ul>li>a {
     padding: 5px;
     font-weight: bold;
 }
-header nav > ul >li:hover> a{
+
+header nav>ul>li:hover>a {
     background-color: white;
     color: var(--main-color);
 }
-header nav ul li:hover ul{
+
+header nav ul li:hover ul {
     display: block;
 }
 
-header nav ul li ul{
+header nav ul li ul {
     position: absolute;
     top: 80px;
     left: 0;
@@ -53,33 +60,39 @@ header nav ul li ul{
     color: var(--main-color);
     display: none;
 }
-header nav ul li ul li{
+
+header nav ul li ul li {
     height: 40px;
     display: flex;
     align-items: center;
     padding: 0 10px;
     white-space: nowrap;
 }
-header nav ul li ul li a{
+
+header nav ul li ul li a {
     max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-header nav ul li ul li:hover{
+
+header nav ul li ul li:hover {
     background-color: var(--main-color);
     color: white;
     cursor: pointer;
 }
-header nav > ul li ul{
+
+header nav>ul li ul {
     border: 1px solid #ccc;
     border-top: none;
     box-shadow: 0 2px 25px #1d1d1d;
 }
-.nav-icon{
+
+.nav-icon {
     display: none;
     font-size: 2rem;
 }
-.header-page{
+
+.header-page {
     height: 200px;
     display: flex;
     align-items: center;
@@ -88,13 +101,16 @@ header nav > ul li ul{
     color: white;
     text-transform: uppercase;
 }
+
 @media screen and (max-width: 900px) {
-    .container{}
-    header{
+    .container {}
+
+    header {
         display: flex;
         justify-content: space-between;
     }
-    header nav{
+
+    header nav {
         background-color: white;
         color: var(--main-color);
         font-weight: bold;
@@ -106,17 +122,20 @@ header nav > ul li ul{
         box-shadow: 0 2px 25px #1d1d1d;
         display: none;
     }
-    header nav ul{
+
+    header nav ul {
         flex-direction: column;
         padding: 0;
     }
-    header nav ul li ul{
+
+    header nav ul li ul {
         left: -93px;
         width: 80%;
         background-color: white;
         color: var(--main-color);
     }
-    .nav-icon{
-        display: block ;
+
+    .nav-icon {
+        display: block;
     }
 }

@@ -1,4 +1,4 @@
-.single-article .article-image{
+.single-article .article-image {
     height: 600px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -7,16 +7,19 @@
     border-radius: 15px;
     border: 5px solid var(--main-color);
 }
-.single-article .article-image img{
+
+.single-article .article-image img {
     width: 100%;
     height: 100%;
 }
-.single-article .article-details{
+
+.single-article .article-details {
     padding: 20px 0;
     gap: 10px;
 
 }
-.content{
+
+.content {
     text-align: justify;
     line-height: 1.5;
     /* border: 5px solid var(--main-color); */

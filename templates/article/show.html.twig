@@ -2,6 +2,8 @@
 
 {% block title %}Article{% endblock %}
 
+{% set aside = "not" %}
+
 {% block body %}
     <h1>Article</h1>
 
@@ -12,7 +14,7 @@
                 <td>{{ article.id }}</td>
             </tr>
             <tr>
-                <th>Title</th>
+                <th>Titre</th>
                 <td>{{ article.title }}</td>
             </tr>
             <tr>
@@ -20,11 +22,11 @@
                 <td>{{ article.slug }}</td>
             </tr>
             <tr>
-                <th>Content</th>
+                <th>Description</th>
                 <td>{{ article.content | raw }}</td>
             </tr>
             <tr>
-                <th>ImageUrl</th>
+                <th>Image</th>
                 <td>{{ article.imageUrl }}</td>
             </tr>
             <tr>

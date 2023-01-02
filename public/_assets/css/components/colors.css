@@ -7,8 +7,8 @@
     --animate-duration: 800ms;
     --animate-delay: 0.9s;
 } */
-:root{
-    --main-color: #303030;
+:root {
+    --main-color: #0d3161;
     --main-color-white: rgb(70, 70, 70);
     --main-gradient: linear-gradient(var(--main-color), var(--main-color-white), var(--main-color));
     --main-danger: rgb(255, 0, 60);
@@ -16,6 +16,7 @@
     --animate-duration: 800ms;
     --animate-delay: 0.9s;
 }
+
 /* :root {
     --main-color: #000226;
     --main-color-white: #17193f;
