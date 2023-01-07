@@ -58,7 +58,7 @@ form {
 }
 
 form p {
-    text-align: start;
+    text-align: justify;
 }
 
 form p a {
@@ -84,6 +84,6 @@ form .form-group>ul li {
 }
 
 form .image-preview img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
 }

@@ -16,4 +16,8 @@ $(function () {
             $("header nav .down").show()
         }
     })
+
+    $("img").on("error", function () {
+        $(this).attr("src", "/_assets/images/articles/default-article-image.png")
+    })
 })

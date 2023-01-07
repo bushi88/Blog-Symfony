@@ -2,10 +2,20 @@
     flex: 1;
     overflow-x: scroll;
     min-height: 60vh;
+    padding: 20px;
 }
 
 .UserDashboard aside {
     width: 295px;
+}
+
+.UserDashboard-container img {
+    width: 200px;
+}
+
+.dashboard-img {
+    text-align: center;
+    margin-top: 20px;
 }
 
 @media screen and (max-width: 900px) {

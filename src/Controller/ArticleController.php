@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Form\ArticleType;
-use App\Services\UploadFile;
+use App\Services\ManageFile;
 use App\Services\CategoriesServices;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -17,12 +17,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[Route('/account')]
 class ArticleController extends AbstractController
 {
-    private $uploadFile;
+    private $manageFile;
     private $em;
-    public function __construct(CategoriesServices $categoriesServices, UploadFile $uploadFile, EntityManagerInterface $em)
+    public function __construct(CategoriesServices $categoriesServices, ManageFile $manageFile, EntityManagerInterface $em)
     {
         $categoriesServices->updateSession();
-        $this->uploadFile = $uploadFile;
+        $this->manageFile = $manageFile;
         $this->em = $em;
     }
 
@@ -52,7 +52,7 @@ class ArticleController extends AbstractController
 
     // CREATE ARTICLE
     // on renomme les images pour éviter les conflits en cas de meme nom
-    // voir \src\Services\UploadFile.php
+    // voir \src\Services\manageFile.php
     #[Route('/new', name: 'app_article_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ArticleRepository $articleRepository): Response
     {
@@ -65,7 +65,7 @@ class ArticleController extends AbstractController
 
             $file = $form["imageFile"]->getData();
 
-            $file_url = $this->uploadFile->saveFile($file);
+            $file_url = $this->manageFile->saveFile($file);
 
             $article->setImageUrl($file_url);
             $article->setAuthor($this->getUser());
@@ -105,7 +105,7 @@ class ArticleController extends AbstractController
 
             $file = $form["imageFile"]->getData();
             if ($file) {
-                $file_url = $this->uploadFile->updateFile($file, $article->getImageUrl());
+                $file_url = $this->manageFile->updateFile($file, $article->getImageUrl());
 
                 $article->setImageUrl($file_url);
             }
@@ -129,7 +129,13 @@ class ArticleController extends AbstractController
     public function delete(Request $request, Article $article, ArticleRepository $articleRepository): Response
     {
         if ($this->isCsrfTokenValid('delete' . $article->getId(), $request->request->get('_token'))) {
+            $imageUrl = $article->getImageUrl();
+            // dd($imageUrl);
+
             $articleRepository->remove($article, true);
+            // dd($articleRepository);
+
+            $this->manageFile->removeFile($imageUrl);
         }
 
         return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);

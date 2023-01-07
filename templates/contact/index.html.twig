@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact{% endblock %}
-
+{% block title %} Blog | Page Contact {% endblock %}
 {% set aside = "not" %}
 
+{% block header %}
+    {{ include('header/header.html.twig', {name : "Contact Us"})}}
+{% endblock %}
 {% block body %}
 
-<h2 class="title">Contactez-nous</h2>
 
 {{ form_start(contact) }}
     {% for message in app.session.flashBag.get("message") %}

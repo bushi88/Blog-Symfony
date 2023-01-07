@@ -2,48 +2,46 @@
 
 {% block title %}Edit Article
 {% endblock %}
-
 {% set aside = "not" %}
+
+{% block header %}
+	{{ include('header/header.html.twig', {name :  "Edit Article" })}}
+{% endblock %}
 
 {% block body %}
 
 	<div class="UserDashboard flex gap-20">
 		{{ include('account_dashboard/index.html.twig', {page: "articles"}) }}
 		<div class="UserDashboard-container">
-			{{ include('article/_form.html.twig', {'button_label': 'Mettre à jour', title: "Article"}) }}
+			{{ include('article/_form.html.twig', {'button_label': 'Update', title: "Edit Article"}) }}
+
 		</div>
 	</div>
-
-	{# {{ include('article/_delete_form.html.twig') }} #}
-
 {% endblock %}
-
 {% block javascripts %}
-    <script>
-        $(document).ready(function () {
-            $('.choices_categories').select2();
 
-            // remplacement fichier image dans le formulaire CRUD
-            $("input[type='file']").change(function () {
-                var file = $(this).get(0).files[0]
-                if (file) {
-                    var reader = new FileReader();
-                    reader.onload = function () {
-                        console.log(file);
-                        var img = `<img src='${reader.result
-                            }' alt="Preview Image" />`;
-                        $(".image-preview").html(img)
-                        console.log(img);
-                        console.log('salut');
-                    }
-                    reader.readAsDataURL(file)
-                }
-            })
-        });
-        ClassicEditor.create(document.querySelector('#article_content')).then(editor => {
-            console.log(editor);
-        }).catch(error => {
-            console.error(error);
-        });
-    </script>
+	<script>
+		$(document).ready(function () {
+$('.choices_categories').select2();
+$("input[type='file']").change(function () {
+var file = $(this).get(0).files[0]
+if (file) {
+var reader = new FileReader();
+reader.onload = function () {
+console.log(file);
+var img = `<img src='${
+reader.result
+}' alt="Preview Image" />`;
+$(".image-preview").html(img)
+}
+reader.readAsDataURL(file)
+}
+})
+});
+ClassicEditor.create(document.querySelector('#article_content')).then(editor => {
+console.log(editor);
+}).catch(error => {
+console.error(error);
+});
+	</script>
 {% endblock %}

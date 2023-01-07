@@ -72,7 +72,7 @@ class ArticleControllerTest extends WebTestCase
         $fixture->setAuthor('My Title');
         $fixture->setCategories('My Title');
 
-        $this->repository->save($fixture, true);
+        $this->repository->add($fixture, true);
 
         $this->client->request('GET', sprintf('%s%s', $this->path, $fixture->getId()));
 
@@ -95,7 +95,7 @@ class ArticleControllerTest extends WebTestCase
         $fixture->setAuthor('My Title');
         $fixture->setCategories('My Title');
 
-        $this->repository->save($fixture, true);
+        $this->repository->add($fixture, true);
 
         $this->client->request('GET', sprintf('%s%s/edit', $this->path, $fixture->getId()));
 
@@ -140,7 +140,7 @@ class ArticleControllerTest extends WebTestCase
         $fixture->setAuthor('My Title');
         $fixture->setCategories('My Title');
 
-        $this->repository->save($fixture, true);
+        $this->repository->add($fixture, true);
 
         self::assertSame($originalNumObjectsInRepository + 1, count($this->repository->findAll()));
 

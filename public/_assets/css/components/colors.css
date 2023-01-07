@@ -7,25 +7,24 @@
     --animate-duration: 800ms;
     --animate-delay: 0.9s;
 } */
-:root {
-    --main-color: #0d3161;
+/* :root{
+    --main-color: #000000;
     --main-color-white: rgb(70, 70, 70);
     --main-gradient: linear-gradient(var(--main-color), var(--main-color-white), var(--main-color));
     --main-danger: rgb(255, 0, 60);
     --main-success: rgb(0, 68, 45);
     --animate-duration: 800ms;
     --animate-delay: 0.9s;
-}
-
-/* :root {
-    --main-color: #000226;
-    --main-color-white: #17193f;
+} */
+:root {
+    --main-color: #0e103a;
+    --main-color-white: #24253d;
     --main-gradient: linear-gradient(var(--main-color), var(--main-color-white), var(--main-color));
     --main-danger: rgb(255, 0, 60);
     --main-success: rgb(0, 68, 45);
     --animate-duration: 800ms;
     --animate-delay: 0.9s;
-} */
+}
 
 /* :root{
     --main-color: #b0008a;

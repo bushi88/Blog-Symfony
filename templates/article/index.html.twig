@@ -1,19 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Blog{% endblock %}
+{% block title %}New Article{% endblock %}
 {% set aside = "not" %}
 
 {% block header %}
-	{{ include('header/header.html.twig', {name :  "Dashboard" })}}
+    {{ include('header/header.html.twig', {name :  "Dashboard" })}}
 {% endblock %}
 {% block body %}
 
-	<div class="UserDashboard flex gap-20">
-		{{ include('account_dashboard/index.html.twig', {page: "index"}) }}
-		<div class="UserDashboard-container">
-			<h2>Bienvenue sur votre tableau de bord</h2>
-			<p>Vous pouvez gérer votre compte depuis cette page</p>
-		</div>
-	</div>
+    <div class="UserDashboard flex gap-20">
+        {{ include('account_dashboard/index.html.twig', {page: "index"}) }}
+        <div class="UserDashboard-container">
+            <h2>Welcome to your dashboard</h2>
+            <p>You will be able to manage your account from here.</p>
+            <div class="dashboard-img">    
+                <img src="/_assets/images/dashboard.png">
+            </div>
+        </div>
+    </div>
+
+ 
 
 {% endblock %}
+    
+

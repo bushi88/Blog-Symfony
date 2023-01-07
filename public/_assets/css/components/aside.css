@@ -24,7 +24,7 @@ aside ul {
     padding: 5px;
 }
 
-/* aside a.active {} */
+aside a.active {}
 
 aside ol li a,
 aside ul li a {

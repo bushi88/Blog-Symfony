@@ -1,11 +1,12 @@
 .slider {
-    height: 600px;
+    height: 500px;
     background-image: url("/_assets/images/slider-2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     display: flex;
-    justify-content: center;    /*** X ***/
-    align-items: start;    /*** Y ***/
+    justify-content: center;
+    align-items: flex-end;
     box-shadow: 2px 2px 13px rgb(26, 26, 26);
     border-radius: 0 0 10px 10px;
     cursor: pointer;
@@ -16,10 +17,9 @@
 .slider-content {
     background-color: rgb(255 255 255);
     color: var(--main-color);
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 2px 2px 13px rgb(26, 26, 26);
-    text-align: center;
-    margin-top: 5%;
-    opacity: 0.6;
+    margin-bottom: 2%;
+    opacity: 0.7;
 }

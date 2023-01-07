@@ -5,7 +5,7 @@ namespace App\Services;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
-class UploadFile extends AbstractController
+class ManageFile extends AbstractController
 {
     // on renomme le fichier pour éviter les conflits en cas de noms identiques
     public function generate_name($length = 20)
@@ -21,15 +21,17 @@ class UploadFile extends AbstractController
     }
 
     // on sauvegarde le fichier avec le nom aléatoire dans le dossier /_assets/images/articles/ 
-    // nota : la méthode guessExtension() permet de récupèrer l'extension du fichier
+    // nota : la méthode guessExtension() semble etre obsolete,, on utilisera donc getClientOriginalExtension() por récupèrer l'extension du fichier
     public function saveFile($file)
     {
         $extension = $file->getClientOriginalExtension();
+
         $filename = $this->generate_name() . "." . $extension;
         $file->move($this->getParameter('image_dir'), $filename);
 
         return '/_assets/images/articles/' . $filename;
     }
+
     public function updateFile($file, $old_file)
     {
         $file_url = $this->saveFile($file);
@@ -39,5 +41,17 @@ class UploadFile extends AbstractController
             //throw $th;
         }
         return $file_url;
+    }
+
+    // on supprime le fichier
+    public function removeFile($file_url)
+    {
+        try {
+            unlink($this->getParameter('static_dir') . $file_url);
+            return true;
+        } catch (\Throwable $th) {
+            //throw $th;
+            return false;
+        }
     }
 }

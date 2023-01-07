@@ -79,16 +79,14 @@ a {
 
 .btn {
     padding: 10px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: white;
     cursor: pointer;
     border: none;
-    border-radius: 5px;
     text-align: center;
     text-transform: uppercase;
     box-shadow: 0 2px 25px #1d1d1d;
     background: var(--main-gradient);
-
 }
 
 form .btn {
@@ -115,11 +113,11 @@ footer {
 }
 
 footer .footer-content {
-    gap: 50px;
+    gap: 40px;
 }
 
 footer .footer-content-item {
-    min-width: 300px;
+    min-width: 250px;
     padding: 5px;
 }
 
